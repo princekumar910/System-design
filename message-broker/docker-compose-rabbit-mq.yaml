@@ -1,0 +1,27 @@
+
+services:
+  rabbitmq:
+    image: rabbitmq:4-management
+    container_name: rabbitmq-local
+    restart: unless-stopped
+
+    ports:
+      - "0.0.0.0:5672:5672"
+      - "0.0.0.0:15672:15672"
+
+    environment:
+      RABBITMQ_DEFAULT_USER: prince
+      RABBITMQ_DEFAULT_PASS: "rPwCJ93Or9Ch"
+
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+volumes:
+  rabbitmq_data:
+
