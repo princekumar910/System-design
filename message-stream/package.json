@@ -1,0 +1,23 @@
+{
+  "name": "kafka-learning",
+  "version": "1.0.0",
+  "description": "Learning Kafka from scratch with Node.js",
+  "main": "src/server.js",
+  "scripts": {
+    "check": "node src/admin/checkConnection.js",
+    "topics": "node src/admin/createTopics.js",
+    "producer": "node src/producers/order.producer.js",
+    "consumer:payment": "node src/consumers/payment.consumer.js",
+    "consumer:email": "node src/consumers/email.consumer.js",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "kafkajs": "^2.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
